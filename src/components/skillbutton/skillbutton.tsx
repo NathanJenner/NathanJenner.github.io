@@ -8,11 +8,15 @@ interface SkillButtonProps {
 
 export default function SkillButton({ label, href, download }: SkillButtonProps) {
   if (href) {
-    return (
-      <Button as="a" download={download} href={href}>
-        {label}
-      </Button>
-    );
+    const handlePress = () => {
+      const link = document.createElement("a");
+
+      link.href = href;
+      link.download = download ?? "";
+      link.click();
+    };
+
+    return <Button onPress={handlePress}>{label}</Button>;
   }
 
   const list = [
