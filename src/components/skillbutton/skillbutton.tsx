@@ -1,6 +1,20 @@
 import { Button } from "@heroui/react";
 
-export default function SkillButton() {
+interface SkillButtonProps {
+  label?: string;
+  href?: string;
+  download?: string;
+}
+
+export default function SkillButton({ label, href, download }: SkillButtonProps) {
+  if (href) {
+    return (
+      <Button as="a" download={download} href={href}>
+        {label}
+      </Button>
+    );
+  }
+
   const list = [
     { label: "C#" },
     { label: "TypeScript" },

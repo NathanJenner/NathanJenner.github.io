@@ -1,3 +1,2 @@
-onlyBuiltDependencies:
-  - '@heroui/shared-utils'
-  - esbuild
+allowBuilds:
+  '@heroui/shared-utils': true
